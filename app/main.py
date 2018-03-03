@@ -24,10 +24,12 @@ def start():
     # TODO: Do things with data
 
     return {
-        'color': '#07a5d8',
-        'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
+        'color': '#FFB400',
         'head_url': head_url,
-        'name': 'ShiaLeboof'
+        'name': 'ShiaLeboof',
+        'taunt': 'JUST DO IT',
+        'head_type': 'pixel',
+        'tail_type': 'pixel'
     }
 
 
