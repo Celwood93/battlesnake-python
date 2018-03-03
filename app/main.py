@@ -2,7 +2,7 @@ import bottle
 import os
 import random
 import brain
-
+import json
 
 @bottle.route('/static/<path:path>')
 def static(path):
@@ -33,11 +33,14 @@ def start():
 
 @bottle.post('/move')
 def move():
+    with open('sample.json', 'w') as f:
+        json.dump(bottle.request.json, f)
     data = bottle.request.json
+
 
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
-    #move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
+    move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
 
     return {
         'move': 'up',#random.choice(directions),
