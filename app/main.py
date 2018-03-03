@@ -37,7 +37,7 @@ def move():
 
     # TODO: Do things with data
     directions = ['up', 'down', 'left', 'right']
-    move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
+    #move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
 
     return {
         'move': 'up',#random.choice(directions),
