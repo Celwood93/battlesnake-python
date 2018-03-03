@@ -40,7 +40,7 @@ def move():
     #move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
 
     return {
-        'move': 'up',#random.choice(directions),
+        'move': 'up', #random.choice(directions),
         'taunt': 'battlesnake-python!'
     }
 
