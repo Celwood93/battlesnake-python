@@ -33,8 +33,9 @@ def start():
 
 @bottle.post('/move')
 def move():
-    with open('sample.json', 'w') as f:
-        json.dump(bottle.request.json, f)
+    # with open('sample.json', 'w') as f:
+    #     json.dump(bottle.request.json, f)
+
     data = bottle.request.json
 
 
@@ -42,8 +43,9 @@ def move():
     directions = ['up', 'down', 'left', 'right']
     move = brain.decideMove(data.get('you'), data.get('snakes'), data.get('food'), directions)
 
+
     return {
-        'move': 'up', #random.choice(directions),
+        'move': move, #random.choice(directions),
         'taunt': 'battlesnake-python!'
     }
 
