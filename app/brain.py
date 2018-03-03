@@ -1,4 +1,4 @@
 import dijkstras
 
-class brain():
-	
+def decideMove(me, snakes, food, options):
+	return 'up'
