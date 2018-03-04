@@ -32,21 +32,24 @@ def get_board(response):
 
 
 def in_bounds(position, board):
-    x, y = position
+    x = position[0]
+    y = position[1]
     # check if the position is out of bounds
     width = len(board[0])
     height = len(board)
-    if board[x][y] == -1:
-        return False
+    
     if x > width-1 or x < 0:
         return False
     if y > height-1 or y < 0:
         return False
+    if board[x][y] == -1:
+        return False
     return True
 
 
-def neighbours(position, board):
-    x, y = position
+def neighbours(board, position):
+    x = position[0]
+    y = position[1]
     neighbours = [(x-1, y), (x, y+1), (x, y-1), (x+1, y)]
     return [pos for pos in neighbours if in_bounds(pos, board)]
 
