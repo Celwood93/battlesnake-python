@@ -31,8 +31,29 @@ def get_board(response):
     return board
 
 
+def in_bounds(position, board):
+    x, y = position
+    # check if the position is out of bounds
+    width = len(board[0])
+    height = len(board)
+    if board[x][y] == -1:
+        return False
+    if x > width-1 or x < 0:
+        return False
+    if y > height-1 or y < 0:
+        return False
+    return True
+
+
+def neighbours(position, board):
+    x, y = position
+    neighbours = [(x-1, y), (x, y+1), (x, y-1), (x+1, y)]
+    return [pos for pos in neighbours if in_bounds(pos, board)]
+
+
 if __name__ == '__main__':
     import json
     with open('sample.json') as infile:
         response = json.load(infile)
-    print(get_board(response))
+    board = get_board(response)
+    print(neighbours((0, 2), board))
