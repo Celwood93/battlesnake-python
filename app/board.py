@@ -1,6 +1,5 @@
 import numpy as np
 
-BOARD_SIZE = 22
 SNAKES = 'snakes'
 FOOD = 'food'
 
@@ -24,7 +23,9 @@ def add_to_board(board, response, datatype):
 
 
 def get_board(response):
-    board = np.zeros((BOARD_SIZE, BOARD_SIZE))
+    width = response["width"]
+    height = response["height"]
+    board = np.zeros((width, height))
     add_to_board(board, response, SNAKES)
     add_to_board(board, response, FOOD)
     return board

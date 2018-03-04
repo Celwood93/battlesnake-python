@@ -1,4 +1,5 @@
-import dijkstra
+import board
+import numpy as np
 
 def decideMove(me, snakes, food, options):
 	currX = me["body"]["data"][0]['x']
@@ -62,5 +63,9 @@ def checkKill(me, move):
 	if currDir == "up" and move == "down":
 		return False
 	return True
+
+def decideMoveGood(data):
+	graph = board.getBoard(data)
+	
 
 
